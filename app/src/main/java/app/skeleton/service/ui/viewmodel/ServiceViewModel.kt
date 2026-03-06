@@ -27,11 +27,7 @@ class ServiceViewModel(
         viewModelScope.launch {
             serviceRepository.observeAll().collect { services ->
                 _servicesState.update {
-                    if (services.isNotEmpty()) {
-                        DataUiState.Populated(services)
-                    } else {
-                        DataUiState.Empty
-                    }
+                    DataUiState.from(services)
                 }
             }
         }

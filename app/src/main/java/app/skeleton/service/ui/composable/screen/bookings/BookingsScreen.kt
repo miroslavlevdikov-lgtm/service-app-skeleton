@@ -1,15 +1,7 @@
 package app.skeleton.service.ui.composable.screen.bookings
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -18,8 +10,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import app.skeleton.service.R
 import app.skeleton.service.ui.composable.shared.DataBasedContainer
 import app.skeleton.service.ui.composable.shared.DataEmptyContent
@@ -48,37 +38,7 @@ fun BookingsScreen(
     )
 
     if (shouldShowDialog) {
-        AlertDialog(
-            onDismissRequest = { shouldShowDialog = false },
-            confirmButton = {
-                TextButton(onClick = {
-                    viewModel.cancelBooking(canceledBookingNumber)
-                    canceledBookingNumber = ""
-                    shouldShowDialog = false
-                }) {
-                    Text("Yes, cancel it")
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = {
-                    canceledBookingNumber = ""
-                    shouldShowDialog = false
-                }) {
-                    Text("No, keep it")
-                }
-            },
-            title = { Text(text = "Cancel Booking") },
-            text = {
-                Text(
-                    text = "Are you sure you want to cancel this booking?",
-                    textAlign = TextAlign.Justify,
-                )
-            },
 
-            containerColor = MaterialTheme.colorScheme.surface,
-            titleContentColor = MaterialTheme.colorScheme.primary,
-            textContentColor = MaterialTheme.colorScheme.onSurface,
-        )
     }
 }
 
@@ -90,7 +50,7 @@ private fun BookingsContent(
 ) {
     Column(modifier = modifier) {
 
-        DataBasedContainer<List<BookingUiState>>(
+        DataBasedContainer(
             dataState = bookingsState,
 
             dataPopulated = {
@@ -116,29 +76,5 @@ private fun BookingsPopulated(
     modifier: Modifier = Modifier,
     onCancelBookingButtonClick: (bookingNumber: String) -> Unit,
 ) {
-    BookingList(
-        bookings = bookings,
-        modifier = modifier,
-        onCancelBookingButtonClick = onCancelBookingButtonClick,
-    )
-}
 
-@Composable
-fun BookingList(
-    bookings: List<BookingUiState>,
-    modifier: Modifier = Modifier,
-    onCancelBookingButtonClick: (bookingNumber: String) -> Unit,
-) {
-    LazyColumn(
-        modifier = modifier,
-        contentPadding = PaddingValues(20.dp),
-        verticalArrangement = Arrangement.spacedBy(20.dp),
-    ) {
-        items(bookings) { booking ->
-            BookingItem(
-                booking = booking,
-                onCancelBookingButtonClick = onCancelBookingButtonClick,
-            )
-        }
-    }
 }

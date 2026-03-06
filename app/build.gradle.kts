@@ -53,9 +53,6 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
 
-    // ConstraintLayout
-    implementation("androidx.constraintlayout:constraintlayout-compose:1.1.1")
-
     implementation(libs.androidx.compose.animation)
     implementation(libs.androidx.ui)
     implementation(libs.kotlinx.serialization.json)

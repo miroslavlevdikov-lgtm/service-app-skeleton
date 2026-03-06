@@ -1,15 +1,12 @@
 package app.skeleton.service.ui.composable.approot
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavHostController
@@ -90,36 +87,24 @@ private fun AppRootContent(
 ) {
     Scaffold(
         topBar = {
-            Column {
-                if (shouldShowTopBar) {
-                    AppTopBar(
-                        currentDestination = currentDestination,
-                        onNavigateBack = onNavigateBack,
-                    )
-                    HorizontalDivider(
-                        color = MaterialTheme.colorScheme.outline,
-                        thickness = 1.2.dp
-                    )
-                }
+            if (shouldShowTopBar) {
+                AppTopBar(
+                    currentDestination = currentDestination,
+                    onNavigateBack = onNavigateBack,
+                )
             }
         },
 
         bottomBar = {
             if (shouldShowBottomBar) {
-                Column {
-                    HorizontalDivider(
-                        color = MaterialTheme.colorScheme.outline,
-                        thickness = 1.2.dp
-                    )
-
-                    AppBottomBar(
-                        currentDestination = currentDestination,
-                        navigationItems = navigationItems,
-                        onNavigateToRoute = onNavigateToRoute,
-                    )
-                }
+                AppBottomBar(
+                    currentDestination = currentDestination,
+                    navigationItems = navigationItems,
+                    onNavigateToRoute = onNavigateToRoute,
+                )
             }
         },
+
         containerColor = MaterialTheme.colorScheme.background,
     ) { paddingValues ->
         AppNavHost(

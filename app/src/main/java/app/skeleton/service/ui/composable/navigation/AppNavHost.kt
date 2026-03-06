@@ -9,7 +9,7 @@ import androidx.navigation.toRoute
 import app.skeleton.service.ui.composable.screen.bookings.BookingsScreen
 import app.skeleton.service.ui.composable.screen.checkout.CheckoutScreen
 import app.skeleton.service.ui.composable.screen.onboarding.OnboardingScreen
-import app.skeleton.service.ui.composable.screen.service.ServiceScreen
+import app.skeleton.service.ui.composable.screen.home.HomeScreen
 import app.skeleton.service.ui.composable.screen.servicedetails.ServiceDetailsScreen
 import app.skeleton.service.ui.composable.screen.settings.SettingsScreen
 import app.skeleton.service.ui.composable.screen.splash.SplashScreen
@@ -59,7 +59,7 @@ fun AppNavHost(
         }
 
         composable<NavRoute.Home> {
-            ServiceScreen(
+            HomeScreen(
                 onNavigateToServiceDetails = { serviceId: Int ->
                     navController.navigate(
                         route = NavRoute.ServiceDetails(serviceId = serviceId)
