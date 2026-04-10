@@ -53,18 +53,34 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
 
-    implementation(libs.androidx.compose.animation)
-    implementation(libs.androidx.ui)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.androidx.navigation.compose)
-    implementation(platform(libs.koin.bom))
-    implementation(libs.koin.android)
-    implementation(libs.koin.androidx.compose)
-    implementation(libs.koin.androidx.compose.navigation)
-    implementation(libs.androidx.datastore.preferences)
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
+    // Coil
+    implementation("io.coil-kt.coil3:coil-compose:3.4.0")
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.4.0")
+
+    // Icons Extended
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
+
+    // ConstraintLayout
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.1.1")
+
+    // Compose Navigation
+    implementation("androidx.navigation:navigation-compose:2.9.7")
+
+    // Koin
+    implementation(platform("io.insert-koin:koin-bom:4.2.0"))
+    implementation("io.insert-koin:koin-android")
+    implementation("io.insert-koin:koin-compose")
+    implementation("io.insert-koin:koin-compose-viewmodel")
+    implementation("io.insert-koin:koin-androidx-compose-navigation")
+
+    // Room
+    ksp("androidx.room:room-compiler:2.8.4")
+    implementation("androidx.room:room-runtime:2.8.4")
+    implementation("androidx.room:room-ktx:2.8.4")
+
+    // Preferences DataStore
+    implementation("androidx.datastore:datastore-preferences:1.2.1")
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -85,7 +85,7 @@ fun AppNavHost(
             CheckoutScreen(
                 serviceId = checkout.serviceId,
                 onNavigateToBookingsScreen = {
-                    navController.navigate(NavRoute.Bookings) {
+                    navController.navigate(NavRoute.Home) {
                         popUpTo(NavRoute.Home) { inclusive = false }
                     }
                 }

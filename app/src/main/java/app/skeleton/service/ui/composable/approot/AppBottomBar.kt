@@ -1,18 +1,18 @@
 package app.skeleton.service.ui.composable.approot
 
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
@@ -21,7 +21,7 @@ import app.skeleton.service.ui.composable.navigation.NavRoute
 
 data class BottomNavItem(
     @field:StringRes val titleRes: Int,
-    @field:DrawableRes val iconRes: Int,
+    val icon: ImageVector,
     val route: NavRoute,
 )
 
@@ -33,8 +33,8 @@ fun AppBottomBar(
 ) {
 
     NavigationBar(
-        containerColor = MaterialTheme.colorScheme.surface,
-        contentColor = MaterialTheme.colorScheme.onSurface,
+        containerColor = MaterialTheme.colorScheme.primary,
+        contentColor = MaterialTheme.colorScheme.onPrimary,
     ) {
         navigationItems.forEach { item ->
             NavigationBarItem(
@@ -42,7 +42,7 @@ fun AppBottomBar(
                 onClick = { onNavigateToRoute(item) },
                 icon = {
                     Icon(
-                        imageVector = ImageVector.vectorResource(item.iconRes),
+                        imageVector = item.icon,
                         contentDescription = stringResource(item.titleRes),
                         modifier = Modifier.size(26.dp)
                     )
@@ -51,6 +51,14 @@ fun AppBottomBar(
                 label = {
                     Text(text = stringResource(item.titleRes))
                 },
+
+                colors = NavigationBarItemDefaults.colors(
+                    selectedIconColor = MaterialTheme.colorScheme.onPrimary,
+                    selectedTextColor = MaterialTheme.colorScheme.onPrimary,
+                    indicatorColor = Color.Transparent,
+                    unselectedIconColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
+                    unselectedTextColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
+                ),
             )
         }
     }

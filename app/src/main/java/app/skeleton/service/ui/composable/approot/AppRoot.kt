@@ -2,6 +2,10 @@ package app.skeleton.service.ui.composable.approot
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Book
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -20,17 +24,17 @@ import kotlin.reflect.KClass
 private val navigationItems: List<BottomNavItem> = listOf(
     BottomNavItem(
         titleRes = R.string.bottom_bar_nav_item_home_title,
-        iconRes = R.drawable.home,
+        icon = Icons.Default.Home,
         route = NavRoute.Home
     ),
     BottomNavItem(
         titleRes = R.string.bottom_bar_nav_item_bookings_title,
-        iconRes = R.drawable.book_open,
+        icon = Icons.Default.Book,
         route = NavRoute.Bookings
     ),
     BottomNavItem(
         titleRes = R.string.bottom_bar_nav_item_settings_title,
-        iconRes = R.drawable.cog,
+        icon = Icons.Default.Settings,
         route = NavRoute.Settings
     ),
 )
