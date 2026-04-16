@@ -1,6 +1,5 @@
 package app.skeleton.service.data.model
 
-import androidx.annotation.DrawableRes
 import java.time.LocalTime
 
 data class ServiceModel(
@@ -9,5 +8,5 @@ data class ServiceModel(
     val description: String,
     val price: Double,
     val availableTime: List<LocalTime>? = null,
-    @field:DrawableRes val imageRes: Int,
+    val imageUrl: String,
 )
