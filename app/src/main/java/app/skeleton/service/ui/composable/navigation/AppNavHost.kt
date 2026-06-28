@@ -1,11 +1,14 @@
 package app.skeleton.service.ui.composable.navigation
 
+//[COMMON][import_fillMaxSize]
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
+//[COMMON][import_DetailsScreen]
+//[COMMON][import_PrepScreen]
 import app.skeleton.service.ui.composable.screen.bookings.BookingsScreen
 import app.skeleton.service.ui.composable.screen.checkout.CheckoutScreen
 import app.skeleton.service.ui.composable.screen.onboarding.OnboardingScreen
@@ -24,6 +27,10 @@ fun AppNavHost(
         startDestination = NavRoute.Splash,
         modifier = modifier,
     ) {
+        //[COMMON][PrepComposable]
+
+        //[COMMON][DetailsComposable]
+
         composable<NavRoute.Splash> {
             SplashScreen(
                 onNavigateToHomeScreen = {

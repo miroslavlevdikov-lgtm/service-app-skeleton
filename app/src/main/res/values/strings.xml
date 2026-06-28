@@ -59,4 +59,6 @@
     <string name="company_name">Company Name</string>
     <string name="app_version">1.0.0</string>
     <string name="customer_support_link">https://website.org/</string>
+
+    <!--[FIREBASE][notification_channel]-->
 </resources>

@@ -23,4 +23,8 @@ sealed class NavRoute {
 
     @Serializable
     data class Checkout(val serviceId: Int) : NavRoute()
+
+    //[COMMON][PrepRoute]
+
+    //[COMMON][DetailsRoute]
 }
